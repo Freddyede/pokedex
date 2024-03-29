@@ -1,8 +1,9 @@
-export const NavBar = ({pokemonIndex, setPokemon, pokemons}) => (
+export const NavBar = ({ pokemonIndex, setPokemon, pokemons }) => (
     <>
-        { pokemonIndex > 0 && <button onClick={() => setPokemon(pokemonIndex - 1)}>précédent</button> }
-        {pokemonIndex < pokemons.length - 1 &&
-            <button onClick={() => setPokemon(pokemonIndex + 1)}>suivant</button>
+        {
+            pokemons.map((pokemon, index) => (
+               <button key={ pokemon.name } onClick={ () => setPokemon(index) }>{ pokemon.name }</button>
+            ))
         }
     </>
 );
